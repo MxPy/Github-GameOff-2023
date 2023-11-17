@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class PlayerContorller : MonoBehaviour
 {
-    public float speed;
+    
+    [SerializeField] private float speed;
     private float jump;
     public bool isGrounded;
     private float moveVelocity;
-    public Rigidbody2D rb;
-    public int gravity = 3;
+    private VariableTimer timer;
+    
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private int gravity = 3;
     
     void Start()
     {
         jump = 5*gravity;
+        timer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
     }
 
     
@@ -39,6 +43,8 @@ public class PlayerContorller : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.RightArrow)){
             moveVelocity = speed;
+        }
+        if(timer.finished){
         }
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
     }
