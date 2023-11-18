@@ -50,10 +50,5 @@ public class PlayerContorller : MonoBehaviour
         }
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
     }
-    void OnCollisionEnter2D(Collision2D col){
-        isGrounded = true;
-    }
-    void OnCollisionExit2D(Collision2D col){
-        isGrounded = false;
-    }
+    
 }
