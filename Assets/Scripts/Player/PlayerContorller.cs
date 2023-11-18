@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PlayerContorller : MonoBehaviour
 {
-    
-    [SerializeField] private float speed;
     private float jump;
     public bool isGrounded;
     private float moveVelocity;
     private VariableTimer timer;
     
+    [SerializeField] private float speed;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private int gravity = 3;
     
@@ -19,11 +18,14 @@ public class PlayerContorller : MonoBehaviour
         jump = 5*gravity;
         timer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
     }
-
-    
     void Update()
     {
-        if(isGrounded == true){
+       movment();
+    }
+
+    //player movment
+    void movment(){
+         if(isGrounded == true){
             //jump on space for debug
             if (Input.GetKey(KeyCode.Space)){
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
@@ -38,10 +40,10 @@ public class PlayerContorller : MonoBehaviour
             }
         }
         moveVelocity = 0;
-        if (Input.GetKey(KeyCode.LeftArrow)){
+        if (isGrounded == false && Input.GetKey(KeyCode.LeftArrow)){
             moveVelocity = -speed;
         }
-        if (Input.GetKey(KeyCode.RightArrow)){
+        if (isGrounded == false && Input.GetKey(KeyCode.RightArrow)){
             moveVelocity = speed;
         }
         if(timer.finished){

@@ -2,32 +2,37 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-    
+
 
 public class VariableTimer : MonoBehaviour
 {
-    public float actualTimeOfEvent;
-    public float timreTime;
-    public bool finished = false;
+    public float actualTimeOfEvent;  // The actual time when the event should occur
+    public float timerTime;           // The timer duration
+    public bool finished = false;     // Flag indicating whether the timer has finished
 
-    private void Awake(){
+    private void Awake()
+    {
         actualTimeOfEvent = float.PositiveInfinity;
     }
-    
-    public void StartTimer(float delay){
+
+    public void StartTimer(float delay)
+    {
         actualTimeOfEvent = Time.time + delay;
-        StartCoroutine (RunTimer());
-        
+        StartCoroutine(RunTimer());
     }
-    public void ResetTimer(){
+
+    public void ResetTimer()
+    {
         finished = false;
     }
-    private IEnumerator RunTimer(){
-        while (Time.time < actualTimeOfEvent) yield return null;
+
+    private IEnumerator RunTimer()
+    {
+        while (Time.time < actualTimeOfEvent)
+            yield return null;
         finished = true;
-        //Debug.Log("EVENT!");
+        // Debug.Log("EVENT!");
         actualTimeOfEvent = float.PositiveInfinity;
-        
     }
 }
 

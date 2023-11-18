@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class MusicLoader : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //Static song information
+    public float beatTempo;
+    public float secPerBeat;
+    private float offsetToFirstBeat;
+    public AudioSource musicSource;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //Dynamic song information
+    public float songPosition;
+    public float songPosInBeats;
+    public float dspSongTime;
+    public bool musicStarted = false;
 }
