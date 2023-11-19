@@ -9,6 +9,7 @@ public class MusicLoader : MonoBehaviour
     public float secPerBeat;
     public float startingPosition;
     public AudioSource musicSource;
+    public int songLenInBeats;
 
     //Dynamic song information
     public float songPosition;
@@ -16,7 +17,7 @@ public class MusicLoader : MonoBehaviour
     public float dspSongTime;
     public bool musicStarted = false;
 
-    void Start (){
+    private void Awake() {
         onStart();
     }
 
@@ -25,7 +26,9 @@ public class MusicLoader : MonoBehaviour
         secPerBeat = 60f / beatTempo;
         songPosition = startingPosition;
         songPosInBeats = songPosition / secPerBeat;
+        
         dspSongTime = (float)AudioSettings.dspTime - startingPosition;
+        songLenInBeats = (int)(musicSource.clip.length/secPerBeat);
         musicSource.Play();
         musicStarted = true;
     }
