@@ -31,11 +31,9 @@ public class MusicLoader : MonoBehaviour
     }
 
     void Update () {
-        //Only do things if the music has started
         if (!musicStarted) return;
         //calculate the position of the song in seconds from dsp space
         songPosition = (float)(AudioSettings.dspTime - dspSongTime);
-        //calculate the position in beats
         songPosInBeats = songPosition / secPerBeat;
     }
     
