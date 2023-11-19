@@ -18,10 +18,10 @@ public class MusicLoader : MonoBehaviour
     public bool musicStarted = false;
 
     private void Awake() {
-        onStart();
+        Setup();
     }
 
-    public void onStart(){
+    public void Setup(){
         //Calculate the number of seconds per beat
         secPerBeat = 60f / beatTempo;
         songPosition = startingPosition;

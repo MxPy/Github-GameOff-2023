@@ -12,6 +12,26 @@ public class PlayerContorller : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private int gravity = 3;
+
+    //for animation
+    public bool facingRight = true;
+    public Animator animator;
+ 
+    void FixedUpdate()
+        {
+            float h = Input.GetAxis("Horizontal");
+            if(h > 0 && !facingRight)
+                Flip();
+            else if(h < 0 && facingRight)
+                Flip();
+        }
+    void Flip ()
+        {
+            facingRight = !facingRight;
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
     
     void Start()
     {
@@ -20,7 +40,14 @@ public class PlayerContorller : MonoBehaviour
     }
     void Update()
     {
+       JumpingAnimation();
        movment();
+    }
+
+    void JumpingAnimation(){
+        animator.SetBool("isGrounded", isGrounded);
+        if (rb.velocity.y > 0) {animator.SetBool("isFalling", false);}
+        else{animator.SetBool("isFalling", true);}
     }
 
     //player movment
@@ -31,9 +58,9 @@ public class PlayerContorller : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
             }
         // moving UpSide
-        if (rb.velocity.y > 0) {
-                rb.gravityScale = gravity;
-            }
+        if(rb.velocity.y != 0){
+            rb.gravityScale = gravity;
+        }
         // moving on ground
         else {
                 rb.gravityScale = gravity*2;
@@ -42,6 +69,7 @@ public class PlayerContorller : MonoBehaviour
         moveVelocity = 0;
         if (isGrounded == false && Input.GetKey(KeyCode.LeftArrow)){
             moveVelocity = -speed;
+            
         }
         if (isGrounded == false && Input.GetKey(KeyCode.RightArrow)){
             moveVelocity = speed;

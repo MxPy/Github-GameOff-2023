@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 79811573}
   - component: {fileID: 79811572}
   - component: {fileID: 79811571}
+  - component: {fileID: 79811576}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -159,6 +160,8 @@ MonoBehaviour:
   speed: 10
   rb: {fileID: 79811573}
   gravity: 3
+  facingRight: 1
+  animator: {fileID: 79811576}
 --- !u!61 &79811572
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,7 +175,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0054090023, y: 0.06015554}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -183,7 +186,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.42, y: 1.45}
+  m_Size: {x: 0.8737464, y: 0.7834354}
   m_EdgeRadius: 0
 --- !u!50 &79811573
 Rigidbody2D:
@@ -266,14 +269,35 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 79811570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.2944994, y: 0.44777608, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -5.8926, y: 0.8363, z: 0}
+  m_LocalScale: {x: 1.8038, y: 1.777, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 770208185}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &79811576
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79811570}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f6a3245f4df35f84eac375ee4c125393, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &408712609
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,7 +636,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.68462574}
+  m_Offset: {x: 0.020891666, y: -0.33278972}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -623,7 +647,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.08193421}
+  m_Size: {x: 0.8235798, y: 0.026663154}
   m_EdgeRadius: 0
 --- !u!1 &1678188604
 GameObject:
@@ -636,6 +660,7 @@ GameObject:
   - component: {fileID: 1678188606}
   - component: {fileID: 1678188605}
   - component: {fileID: 1678188607}
+  - component: {fileID: 1678188608}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -659,6 +684,7 @@ MonoBehaviour:
   secPerBeat: 0
   startingPosition: 0
   musicSource: {fileID: 1678188607}
+  songLenInBeats: 0
   songPosition: 0
   songPosInBeats: 0
   dspSongTime: 0
@@ -774,3 +800,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1678188608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678188604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5679475113ecf9e43b8d534fd743328d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicLoader: {fileID: 1678188605}
+  note: {fileID: 79811570}
+  topLineTarget: {fileID: 79811570}
+  middleLineTarget: {fileID: 79811570}
+  bottomLineTarget: {fileID: 79811570}
+  SpawnPosX: 0

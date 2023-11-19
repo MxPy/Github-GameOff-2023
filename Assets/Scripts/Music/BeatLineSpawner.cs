@@ -15,12 +15,16 @@ public class BeatLineSpawner : MonoBehaviour
     private Stack<int> notesToSpawn = new Stack<int>();
 
     void Start(){
+        Setup();
+        GenerateSpawnerArray();
+    }
+
+    void Setup(){
         timer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         topSpawnPosY = topLineTarget.transform.position.y;
         middleSpawnPosY = middleLineTarget.transform.position.y;
         bottomSpawnPosY = bottomLineTarget.transform.position.y;
         notesToSpawn = new Stack<int>();
-        GenerateSpawnerArray();
     }
 
     void GenerateSpawnerArray(){
