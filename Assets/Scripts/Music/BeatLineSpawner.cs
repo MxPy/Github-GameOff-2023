@@ -43,8 +43,7 @@ public class BeatLineSpawner : MonoBehaviour
             int randomNumber = random.Next(1, 101);
             int noteToSpawn = 0;
 
-            noteToSpawn = randomNumber switch
-            {
+            noteToSpawn = randomNumber switch{
                 int n when n <= 5 => 0,
                 int n when n <= 25 => 1,
                 int n when n <= 45 => 2,
