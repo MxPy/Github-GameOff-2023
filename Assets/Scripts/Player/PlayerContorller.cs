@@ -53,9 +53,16 @@ public class PlayerContorller : MonoBehaviour
     //player movment
     void movment(){
          if(isGrounded == true){
+            //jump on w for debug
+            if (Input.GetKey(KeyCode.W)){
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
+            }
+            // attack 
             //jump on space for debug
             if (Input.GetKey(KeyCode.Space)){
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
+                animator.SetBool("IsAttack", true);
+                GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
+                //animator.SetBool("IsAttack", false);
             }
         // moving UpSide
         if(rb.velocity.y != 0){
@@ -77,6 +84,11 @@ public class PlayerContorller : MonoBehaviour
         if(timer.finished){
         }
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
+    }
+
+    // ending of attack animation trigged form animation event 
+    public void BackFromAttack(){
+        animator.SetBool("IsAttack", false);
     }
     
 }
