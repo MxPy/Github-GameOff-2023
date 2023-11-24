@@ -6,17 +6,74 @@ using UnityEngine;
 public class BeatLineSpawner : MonoBehaviour
 {
     public MusicLoader musicLoader;
-    public GameObject note;
+    public GameObject topNote, middleNote, bottomNote;
     public GameObject topLineTarget, middleLineTarget, bottomLineTarget;
     public float SpawnPosX;
 
     private float topSpawnPosY, middleSpawnPosY, bottomSpawnPosY;
     private VariableTimer timer;
+    private float secPerBeat;
     private Stack<int> notesToSpawn = new Stack<int>();
 
     void Start(){
         Setup();
         GenerateSpawnerArray();
+        timer.StartTimer(secPerBeat);
+    }
+
+    private void Update() {
+        if(timer.finished && musicLoader.musicStarted == true){
+            SpawnNote(notesToSpawn.Pop());
+            timer.ResetTimer();
+            timer.StartTimer(secPerBeat);
+        }
+    }
+    //TODO add commentts to Spawn fun
+    void SpawnNote(int choice){
+        GameObject note;
+        switch (choice){
+            case 0:
+                return;
+            case 1:
+                note = Instantiate (topNote, new UnityEngine.Vector3(SpawnPosX, topSpawnPosY, 0), UnityEngine.Quaternion.Euler(0, 0, 0));
+                note.GetComponent<MoveWithBeat>().targetNum = 0;
+                break;
+            case 2:
+                note = Instantiate (middleNote, new UnityEngine.Vector3(SpawnPosX, middleSpawnPosY, 0), UnityEngine.Quaternion.Euler(0, 0, 0));
+                note.GetComponent<MoveWithBeat>().targetNum = 1;
+                break;
+            case 3:
+                note = Instantiate (bottomNote, new UnityEngine.Vector3(SpawnPosX, bottomSpawnPosY, 0), UnityEngine.Quaternion.Euler(0, 0, 0));
+                note.GetComponent<MoveWithBeat>().targetNum = 2;
+                break;
+            case 4:
+                note = Instantiate (topNote, new UnityEngine.Vector3(SpawnPosX, topSpawnPosY, 0), UnityEngine.Quaternion.Euler(0, 0, 0));
+                note.GetComponent<MoveWithBeat>().targetNum = 0;
+                note = Instantiate (middleNote, new UnityEngine.Vector3(SpawnPosX, middleSpawnPosY, 0), UnityEngine.Quaternion.Euler(0, 0, 0));
+                note.GetComponent<MoveWithBeat>().targetNum = 1;
+                break;
+            case 5:
+                note = Instantiate (topNote, new UnityEngine.Vector3(SpawnPosX, topSpawnPosY, 0), UnityEngine.Quaternion.Euler(0, 0, 0));
+                note.GetComponent<MoveWithBeat>().targetNum = 0;
+                note = Instantiate (bottomNote, new UnityEngine.Vector3(SpawnPosX, bottomSpawnPosY, 0), UnityEngine.Quaternion.Euler(0, 0, 0));
+                note.GetComponent<MoveWithBeat>().targetNum = 2;
+                break;
+            case 6:
+                note = Instantiate (middleNote, new UnityEngine.Vector3(SpawnPosX, middleSpawnPosY, 0), UnityEngine.Quaternion.Euler(0, 0, 0));
+                note.GetComponent<MoveWithBeat>().targetNum = 1;
+                note = Instantiate (bottomNote, new UnityEngine.Vector3(SpawnPosX, bottomSpawnPosY, 0), UnityEngine.Quaternion.Euler(0, 0, 0));
+                note.GetComponent<MoveWithBeat>().targetNum = 2;
+                break;
+            case 7:
+                note = Instantiate (topNote, new UnityEngine.Vector3(SpawnPosX, topSpawnPosY, 0), UnityEngine.Quaternion.Euler(0, 0, 0));
+                note.GetComponent<MoveWithBeat>().targetNum = 0;
+                note = Instantiate (middleNote, new UnityEngine.Vector3(SpawnPosX, middleSpawnPosY, 0), UnityEngine.Quaternion.Euler(0, 0, 0));
+                note.GetComponent<MoveWithBeat>().targetNum = 1;
+                note = Instantiate (bottomNote, new UnityEngine.Vector3(SpawnPosX, bottomSpawnPosY, 0), UnityEngine.Quaternion.Euler(0, 0, 0));
+                note.GetComponent<MoveWithBeat>().targetNum = 2;
+                break;
+        }
+        
     }
 
     void Setup(){
@@ -24,6 +81,7 @@ public class BeatLineSpawner : MonoBehaviour
         topSpawnPosY = topLineTarget.transform.position.y;
         middleSpawnPosY = middleLineTarget.transform.position.y;
         bottomSpawnPosY = bottomLineTarget.transform.position.y;
+        secPerBeat = musicLoader.secPerBeat;
         notesToSpawn = new Stack<int>();
     }
 
