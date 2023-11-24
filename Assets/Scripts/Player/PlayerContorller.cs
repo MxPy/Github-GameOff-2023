@@ -16,6 +16,8 @@ public class PlayerContorller : MonoBehaviour
     //for animation
     public bool facingRight = true;
     public Animator animator;
+
+    public TargetContorller targetContorller;
  
     void FixedUpdate()
         {
@@ -54,7 +56,7 @@ public class PlayerContorller : MonoBehaviour
     void movment(){
          if(isGrounded == true){
             //jump on w for debug
-            if (Input.GetKey(KeyCode.W)){
+            if (targetContorller.canJump){
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
             }
             // attack 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8026838115542839895}
   - component: {fileID: 5876682758281837796}
   - component: {fileID: 7987916344294948241}
+  - component: {fileID: 7778817545516760773}
   m_Layer: 0
   m_Name: middleNote
   m_TagString: Untagged
@@ -100,3 +101,19 @@ MonoBehaviour:
   musicLoader: {fileID: 0}
   target: {fileID: 0}
   targetNum: 0
+--- !u!58 &7778817545516760773
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8320986457536251510}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.225

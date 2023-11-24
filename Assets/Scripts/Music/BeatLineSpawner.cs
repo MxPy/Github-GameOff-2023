@@ -28,7 +28,7 @@ public class BeatLineSpawner : MonoBehaviour
             timer.StartTimer(secPerBeat);
         }
     }
-    //TODO add commentts to Spawn fun
+    //TODO add commentts to Spawn fun and refractor this shit
     void SpawnNote(int choice){
         GameObject note;
         switch (choice){
