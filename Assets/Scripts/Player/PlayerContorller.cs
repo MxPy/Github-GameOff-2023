@@ -16,8 +16,6 @@ public class PlayerContorller : MonoBehaviour
     //for animation
     public bool facingRight = true;
     public Animator animator;
-
-    public TargetContorller targetContorller;
  
     void FixedUpdate()
         {
@@ -52,19 +50,19 @@ public class PlayerContorller : MonoBehaviour
         else{animator.SetBool("isFalling", true);}
     }
 
+    public void Jump(){
+        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
+    }
+
     //player movment
     void movment(){
          if(isGrounded == true){
-            //jump on w for debug
-            if (targetContorller.canJump){
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
-            }
             // attack 
             //jump on space for debug
             if (Input.GetKey(KeyCode.Space)){
                 animator.SetBool("IsAttack", true);
                 GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
-                //animator.SetBool("IsAttack", false);
+                animator.SetBool("IsAttack", false);
             }
         // moving UpSide
         if(rb.velocity.y != 0){
