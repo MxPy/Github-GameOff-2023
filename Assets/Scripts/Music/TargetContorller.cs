@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Specialized;
+using System;
+using System.Linq;
 
 public class TargetContorller : MonoBehaviour
 {
     public TargetTrigger top, middle, bottom;
-    public bool qPressed = false, wPressed = false, ePressed = false;
-    BitVector32 bitvector;
+    public bool[] keyBools;
     public int jumpCase;
     public PlayerContorller playerContorller;
     private VariableTimer keyPressTimer, noteWindowTimer;
@@ -16,30 +16,33 @@ public class TargetContorller : MonoBehaviour
     private void Start() {
         keyPressTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         noteWindowTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
-        bitvector = new BitVector32();
+        keyBools = new bool[3] {false, false, false};
     }
     void KeyController(){
         
         if (Input.GetKeyDown(KeyCode.Q) && keyPressTimer.finished != true){
             Debug.Log("Q key pressed");
-            qPressed = true;
+            keyBools[2] = true;
             if(keyPressTimer.started == false){
                 keyPressTimer.StartTimer(0.5f);
             }
         } 
         if (Input.GetKeyDown(KeyCode.W) && keyPressTimer.finished != true){
             Debug.Log("W key pressed");
-            wPressed = true;
+            keyBools[1] = true;
             if(keyPressTimer.started == false){
                 keyPressTimer.StartTimer(0.5f);
             }
         }
         if (Input.GetKeyDown(KeyCode.E) && keyPressTimer.finished != true){
             Debug.Log("E key pressed");
-            ePressed = true;
+            keyBools[0] = true;
             if(keyPressTimer.started == false){
                 keyPressTimer.StartTimer(0.5f);
             }
+        }
+        if(keyPressTimer.finished == true){
+           Debug.Log(Convert.ToInt32(string.Join("",keyBools.Select(b => b ? 1 : 0)), 2));
         }
 
     }

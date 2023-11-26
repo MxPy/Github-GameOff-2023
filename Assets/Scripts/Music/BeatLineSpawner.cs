@@ -13,7 +13,7 @@ public class BeatLineSpawner : MonoBehaviour
     private float topSpawnPosY, middleSpawnPosY, bottomSpawnPosY;
     private VariableTimer timer;
     private float secPerBeat;
-    private Stack<int> notesToSpawn = new Stack<int>();
+    public Stack<int> notesToSpawn, notesToSpawnCopy;
 
     void Start(){
         Setup();
@@ -114,6 +114,7 @@ public class BeatLineSpawner : MonoBehaviour
             notesToSpawn.Push(noteToSpawn);
             //Debug.Log(noteToSpawn);
         }
+        notesToSpawnCopy = new Stack<int>(new Stack<int>(notesToSpawn));
     }
 
 }
