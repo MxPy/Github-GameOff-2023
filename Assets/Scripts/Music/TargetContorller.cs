@@ -31,21 +31,21 @@ public class TargetContorller : MonoBehaviour
                 //Debug.Log("Q key pressed");
                 keyBools[0] = true;
                 if(keyPressTimer.started == false){
-                    keyPressTimer.StartTimer(0.25f);
+                    keyPressTimer.StartTimer(0.025f);
                 }
             } 
             if (Input.GetKeyDown(KeyCode.W) && keyPressTimer.finished != true){
                 //Debug.Log("W key pressed");
                 keyBools[1] = true;
                 if(keyPressTimer.started == false){
-                    keyPressTimer.StartTimer(0.25f);
+                    keyPressTimer.StartTimer(0.025f);
                 }
             }
             if (Input.GetKeyDown(KeyCode.E) && keyPressTimer.finished != true){
                 //Debug.Log("E key pressed");
                 keyBools[2] = true;
                 if(keyPressTimer.started == false){
-                    keyPressTimer.StartTimer(0.25f);
+                    keyPressTimer.StartTimer(0.025f);
                 }
             }
             if(keyPressTimer.finished == true){
