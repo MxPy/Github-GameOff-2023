@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerContorller : MonoBehaviour
 {
     private float jump;
-    public bool isGrounded;
+    public bool isGrounded, hitWall;
     private float moveVelocity;
     private VariableTimer timer;
     
@@ -66,11 +66,11 @@ public class PlayerContorller : MonoBehaviour
             }
         }
         moveVelocity = 0;
-        if (isGrounded == false && Input.GetKey(KeyCode.LeftArrow)){
+        if (isGrounded == false && Input.GetKey(KeyCode.LeftArrow) && hitWall == false){
             moveVelocity = -speed;
             
         }
-        if (isGrounded == false && Input.GetKey(KeyCode.RightArrow)){
+        if (isGrounded == false && Input.GetKey(KeyCode.RightArrow) && hitWall == false){
             moveVelocity = speed;
         }
         if(timer.finished){
@@ -83,4 +83,15 @@ public class PlayerContorller : MonoBehaviour
         animator.SetBool("IsAttack", false);
     }
     
+    private void OnTriggerStay2D(Collider2D other) {
+        if(isGrounded == false){
+            hitWall = true;
+        }
+        
+    }
+    private void OnTriggerExit2D(Collider2D other) {
+        if(isGrounded == false){
+            hitWall = false;
+        }
+    }
 }
