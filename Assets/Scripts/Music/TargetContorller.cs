@@ -9,8 +9,10 @@ public class TargetContorller : MonoBehaviour
     public TargetTrigger top, middle, bottom;
     public bool[] keyBools;
     public int keyPressedValue = 0;
-    public int jumpCase;
+    public int jumpCase = -1, noteNow = -1;
+    public float noteWindowTime = 0.5f;
     public PlayerContorller playerContorller;
+    public BeatLineSpawner beatLineSpawner;
     private VariableTimer keyPressTimer, noteKeyWindowTimer, noteEnterWindowTimer;
 
 
@@ -24,21 +26,21 @@ public class TargetContorller : MonoBehaviour
     void KeyController(){
         if(noteKeyWindowTimer.started == false){
             if (Input.GetKeyDown(KeyCode.Q) && keyPressTimer.finished != true){
-            Debug.Log("Q key pressed");
-            keyBools[2] = true;
-            if(keyPressTimer.started == false){
-                keyPressTimer.StartTimer(0.5f);
-            }
+                //Debug.Log("Q key pressed");
+                keyBools[2] = true;
+                if(keyPressTimer.started == false){
+                    keyPressTimer.StartTimer(0.5f);
+                }
             } 
             if (Input.GetKeyDown(KeyCode.W) && keyPressTimer.finished != true){
-                Debug.Log("W key pressed");
+                //Debug.Log("W key pressed");
                 keyBools[1] = true;
                 if(keyPressTimer.started == false){
                     keyPressTimer.StartTimer(0.5f);
                 }
             }
             if (Input.GetKeyDown(KeyCode.E) && keyPressTimer.finished != true){
-                Debug.Log("E key pressed");
+                //Debug.Log("E key pressed");
                 keyBools[0] = true;
                 if(keyPressTimer.started == false){
                     keyPressTimer.StartTimer(0.5f);
@@ -47,12 +49,26 @@ public class TargetContorller : MonoBehaviour
             if(keyPressTimer.finished == true){
                 //magic
                 keyPressedValue = Convert.ToInt32(string.Join("",keyBools.Select(b => b ? 1 : 0)), 2);
-                    noteKeyWindowTimer.StartTimer(1f);
+                    noteKeyWindowTimer.StartTimer(noteWindowTime);
             }
         }
     }
+    void NotesEnterConroller(){
+        if(top.noteEnter || middle.noteEnter || bottom.noteEnter){
+            if(noteEnterWindowTimer.started == false){
+                noteNow = beatLineSpawner.notesToSpawnCopy.Pop();
+                noteEnterWindowTimer.StartTimer(noteWindowTime);
+                //Debug.Log("noteEnterWindowTimer started");
+            }
+        }
+    }
+    void TimersLogicContorller(){
+        if(noteEnterWindowTimer.started == true && noteEnterWindowTimer.finished == false){
 
+        }
+    }
     private void Update() {
         KeyController();
+        NotesEnterConroller();
     }
 }
