@@ -13,7 +13,6 @@ public class TargetContorller : MonoBehaviour
     public int jumpCase = -1, noteNow = -1;
     public float noteWindowTime = 0.5f;
     public PlayerContorller playerContorller;
-    public BeatLineSpawner beatLineSpawner;
     private VariableTimer keyPressTimer, noteKeyWindowTimer, noteEnterWindowTimer;
 
 
