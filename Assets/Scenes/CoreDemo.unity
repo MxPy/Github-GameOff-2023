@@ -162,7 +162,6 @@ MonoBehaviour:
   gravity: 3
   facingRight: 1
   animator: {fileID: 79811576}
-  targetContorller: {fileID: 2035816144}
 --- !u!61 &79811572
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1344,7 +1343,11 @@ MonoBehaviour:
   top: {fileID: 2019750771}
   middle: {fileID: 1596087658}
   bottom: {fileID: 1411478731}
-  topJump: 0
-  middleJump: 0
-  bottomJump: 0
-  canJump: 0
+  keyBools: 
+  jumped: 0
+  keyPressedValue: 0
+  jumpCase: 0
+  noteNow: -1
+  noteWindowTime: 0.05
+  playerContorller: {fileID: 79811571}
+  beatLineSpawner: {fileID: 1678188608}
