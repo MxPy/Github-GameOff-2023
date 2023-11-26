@@ -32,7 +32,7 @@ public class VariableTimer : MonoBehaviour
         while (Time.time < actualTimeOfEvent)
             yield return null;
         finished = true;
-        started = false
+        started = false;
         // Debug.Log("EVENT!");
         actualTimeOfEvent = float.PositiveInfinity;
     }
