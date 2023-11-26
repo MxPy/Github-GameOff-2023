@@ -25,7 +25,7 @@ public class BeatLineSpawner : MonoBehaviour
         if(timer.finished && musicLoader.musicStarted == true){
             SpawnNote(notesToSpawn.Pop());
             timer.ResetTimer();
-            timer.StartTimer(secPerBeat*2);
+            timer.StartTimer(secPerBeat);
         }
     }
     //TODO add commentts to Spawn fun and refractor this shit
