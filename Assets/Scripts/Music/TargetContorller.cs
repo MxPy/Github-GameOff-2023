@@ -70,8 +70,8 @@ public class TargetContorller : MonoBehaviour
     }
     void TimersLogicContorller(){
         if(noteEnterWindowTimer.started == true && noteEnterWindowTimer.finished == false && noteKeyWindowTimer.started == true && noteKeyWindowTimer.finished == false && jumped == false){
-            Debug.Log(noteNow);
-            Debug.Log("key "+keyPressedValue);
+            //Debug.Log(noteNow);
+            //Debug.Log("key "+keyPressedValue);
             if(noteNow == keyPressedValue){
                 playerContorller.Jump();
                 jumped = true;
