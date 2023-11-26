@@ -16,22 +16,7 @@ public class PlayerContorller : MonoBehaviour
     //for animation
     public bool facingRight = true;
     public Animator animator;
- 
-    void FixedUpdate()
-        {
-            float h = Input.GetAxis("Horizontal");
-            if(h > 0 && !facingRight)
-                Flip();
-            else if(h < 0 && facingRight)
-                Flip();
-        }
-    void Flip ()
-        {
-            facingRight = !facingRight;
-            Vector3 theScale = transform.localScale;
-            theScale.x *= -1;
-            transform.localScale = theScale;
-        }
+    public Vector2 facing;
     
     void Start()
     {
@@ -40,8 +25,15 @@ public class PlayerContorller : MonoBehaviour
     }
     void Update()
     {
+        facing.x = Input.GetAxisRaw("Horizontal");
+        facing.y = Input.GetAxisRaw("Vertical");
+
+        if(facing != Vector2.zero){
+            animator.SetFloat("Horizontal", facing.x);
+        }
+
        JumpingAnimation();
-       movment();
+       movement();
     }
 
     void JumpingAnimation(){
@@ -54,8 +46,8 @@ public class PlayerContorller : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
     }
 
-    //player movment
-    void movment(){
+    //player movement
+    void movement(){
          if(isGrounded == true){
             // attack 
             //jump on space for debug
