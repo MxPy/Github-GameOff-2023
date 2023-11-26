@@ -18,14 +18,14 @@ public class BeatLineSpawner : MonoBehaviour
     void Start(){
         Setup();
         GenerateSpawnerArray();
-        timer.StartTimer(secPerBeat);
+        timer.StartTimer(secPerBeat*2);
     }
 
     private void Update() {
         if(timer.finished && musicLoader.musicStarted == true){
             SpawnNote(notesToSpawn.Pop());
             timer.ResetTimer();
-            timer.StartTimer(secPerBeat);
+            timer.StartTimer(secPerBeat*2);
         }
     }
     //TODO add commentts to Spawn fun and refractor this shit
