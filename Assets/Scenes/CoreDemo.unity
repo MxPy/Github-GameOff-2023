@@ -1506,9 +1506,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatTempo: 76
+  musicStartOffsetInBeats: 6
   secPerBeat: 0
   startingPosition: 0
   musicSource: {fileID: 1678188607}
+  timer: {fileID: 0}
   songLenInBeats: 0
   songPosition: 0
   songPosInBeats: 0
