@@ -22,7 +22,7 @@ public class BeatLineSpawner : MonoBehaviour
     }
 
     private void Update() {
-        if(timer.finished && musicLoader.musicStarted == true){
+        if(timer.finished){
             SpawnNote(notesToSpawn.Pop());
             timer.ResetTimer();
             timer.StartTimer(secPerBeat);
