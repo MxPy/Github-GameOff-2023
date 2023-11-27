@@ -6,9 +6,11 @@ public class MusicLoader : MonoBehaviour
 {
     //Static song information
     public float beatTempo;
+    public int musicStartOffsetInBeats = 0;
     public float secPerBeat;
     public float startingPosition;
     public AudioSource musicSource;
+    public VariableTimer timer;
     public int songLenInBeats;
 
     //Dynamic song information
@@ -29,15 +31,22 @@ public class MusicLoader : MonoBehaviour
         
         dspSongTime = (float)AudioSettings.dspTime - startingPosition;
         songLenInBeats = (int)(musicSource.clip.length/secPerBeat);
-        musicSource.Play();
-        musicStarted = true;
+        timer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
+        timer.StartTimer(musicStartOffsetInBeats*secPerBeat);
     }
 
     void Update () {
-        if (!musicStarted) return;
-        //calculate the position of the song in seconds from dsp space
-        songPosition = (float)(AudioSettings.dspTime - dspSongTime);
-        songPosInBeats = songPosition / secPerBeat;
+        if(musicStarted){
+            //calculate the position of the song in seconds from dsp space
+            songPosition = (float)(AudioSettings.dspTime - dspSongTime);
+            songPosInBeats = songPosition / secPerBeat;
+        }
+        else{
+            if(timer.finished){
+                musicSource.Play();
+                musicStarted = true;
+            } 
+        } 
     }
     
 }
