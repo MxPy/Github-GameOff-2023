@@ -4,8 +4,22 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    private Transform target;
     public float followSpeed = 2f;
-    public Transform target;
+    public string targetTag = "Player";
+
+    void Start()
+    {
+
+        GameObject targetObject = GameObject.FindGameObjectWithTag(targetTag);
+
+        if (targetObject != null){
+            target = targetObject.transform;
+        }
+        else{
+            Debug.LogWarning("No GameObject " + targetTag + " found");
+        }
+    }
 
     // offset is not set for now
     public float offsetY = 1f;
