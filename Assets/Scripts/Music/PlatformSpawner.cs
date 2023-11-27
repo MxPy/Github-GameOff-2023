@@ -28,10 +28,10 @@ public class PlatformSpawner : MonoBehaviour
         if(timer.finished && spawned == false){
             Spawn();
             timer.ResetTimer();
-            timer.StartTimer(musicLoader.secPerBeat);
+            timer.StartTimer(musicLoader.secPerBeat*2);
         }else if(timer.finished && spawned == true){
             timer.ResetTimer();
-            timer.StartTimer(musicLoader.secPerBeat);
+            timer.StartTimer(musicLoader.secPerBeat*2);
             spawned = false; 
         }
         

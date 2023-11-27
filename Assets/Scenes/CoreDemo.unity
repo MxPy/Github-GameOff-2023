@@ -1654,16 +1654,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1678188604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cac3d759619fc64a97f27739e365102, type: 3}
+  m_Script: {fileID: 11500000, guid: a5e7588f1d49acd42864663eef1fda5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platformPrefab: {fileID: 6376836519238878015, guid: 5b88cdd0e5155324e9424c7009153c33, type: 3}
   musicLoader: {fileID: 1678188605}
   timer: {fileID: 0}
-  spawnPointX: 10.58959
+  spawnPointX: 10.78912
   spawnPointY: 0
-  topMarginY: -3
-  bottomMarginY: 2
+  topMarginY: 0
+  bottomMarginY: 0
 --- !u!1 &1947771192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,4 +2012,3 @@ MonoBehaviour:
   noteNow: -1
   noteWindowTime: 0.05
   playerContorller: {fileID: 79811571}
-  beatLineSpawner: {fileID: 1678188608}
