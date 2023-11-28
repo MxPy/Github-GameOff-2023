@@ -24,7 +24,7 @@ public class PlatformSpawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update(){
+    void FixedUpdate(){
         if(timer.finished && spawned == false){
             Spawn();
             timer.ResetTimer();
