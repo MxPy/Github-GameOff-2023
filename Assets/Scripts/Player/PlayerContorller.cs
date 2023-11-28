@@ -52,14 +52,11 @@ public class PlayerContorller : MonoBehaviour
     {
         float moveFactor = horizontal * Time.fixedDeltaTime;
  
-        // Movement...
         rigidBody2D.velocity = new Vector2(moveFactor * 10f, rigidBody2D.velocity.y);
  
-        // Flip the sprite according to movement direction...
         if (moveFactor > 0 && !isFacingRight)    flipSprite();
         else if(moveFactor < 0 && isFacingRight) flipSprite();
  
-        // Jumping...
         if (jump)
         {
             rigidBody2D.velocity = Vector2.up * jumpvel;
