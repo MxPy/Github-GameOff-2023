@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerContorller : MonoBehaviour
-{
+{   
     private float jump;
     public bool isGrounded, hitWall;
     private float moveVelocity;
@@ -14,7 +14,6 @@ public class PlayerContorller : MonoBehaviour
     [SerializeField] private int gravity = 3;
 
     //for animation
-    public bool facingRight = true;
     public Animator animator;
     public Vector2 facing;
     
@@ -56,14 +55,14 @@ public class PlayerContorller : MonoBehaviour
                 GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
                 animator.SetBool("IsAttack", false);
             }
-        // moving UpSide
-        if(rb.velocity.y != 0){
-            rb.gravityScale = gravity;
-        }
-        // moving on ground
-        else {
-                rb.gravityScale = gravity*2;
+            // moving UpSide
+            if(rb.velocity.y != 0){
+                rb.gravityScale = gravity;
             }
+            // moving on ground
+            else {
+                    rb.gravityScale = gravity*2;
+                }
         }
         moveVelocity = 0;
         if (isGrounded == false && Input.GetKey(KeyCode.LeftArrow) && hitWall == false){
