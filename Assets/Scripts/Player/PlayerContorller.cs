@@ -3,7 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
  
 public class PlayerContorller : MonoBehaviour
-
+{
+    private Rigidbody2D rigidBody2D;
+    private CircleCollider2D circleCollider2D;
+    [SerializeField] private LayerMask groundLayer;
+    [Range(0, 20f)] [SerializeField] private float speed = 0f;
+    [Range(0, 20f)] [SerializeField] float jumpvel = 0f;
+ 
+    float horizontal = 0f;
+    float lastJumpY = 0;
+    private bool isFacingRight = true;
+    public bool jump = false;
+ 
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -30,11 +41,10 @@ public class PlayerContorller : MonoBehaviour
                 lastJumpY = transform.position.y;
                 //GetComponent<Animator>().Play("Player_Jump_Up_Right");
             }
+            else if(lastJumpY > transform.position.y)
+            {
+                //GetComponent<Animator>().Play("Player_Jump_Down_Right");
             }
-            // moving on ground
-            else {
-                    rb.gravityScale = gravity*2;
-                }
         }
     }
  
