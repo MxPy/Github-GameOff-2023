@@ -7,8 +7,8 @@ public class PlayerContorller : MonoBehaviour
     private Rigidbody2D rigidBody2D;
     private CircleCollider2D circleCollider2D;
     [SerializeField] private LayerMask groundLayer;
-    [Range(0, 10f)] [SerializeField] private float speed = 0f;
-    [Range(0, 10f)] [SerializeField] float jumpvel = 0f;
+    [Range(0, 20f)] [SerializeField] private float speed = 0f;
+    [Range(0, 20f)] [SerializeField] float jumpvel = 0f;
  
     float horizontal = 0f;
     float lastJumpY = 0;
@@ -23,7 +23,8 @@ public class PlayerContorller : MonoBehaviour
  
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal") * speed;
+        if (!isOnGround()) horizontal = Input.GetAxisRaw("Horizontal") * speed;
+        else horizontal = 0;
  
         // play correct animations while moving...
         //if(isOnGround() && horizontal.Equals(0))
@@ -61,7 +62,6 @@ public class PlayerContorller : MonoBehaviour
         // Jumping...
         if (jump)
         {
-            
             rigidBody2D.velocity = Vector2.up * jumpvel;
             jump = false;
         }
