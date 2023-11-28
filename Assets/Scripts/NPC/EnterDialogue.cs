@@ -27,7 +27,7 @@ public class EnterDialogue : MonoBehaviour
         waitForInput = true;
         playerIsClose = false;
         stopTyping = true;
-        
+        continueButton.SetActive(false);
     }
 
     void Update()
@@ -63,7 +63,7 @@ public class EnterDialogue : MonoBehaviour
             }
         }
 
-        if (dialogueText.text == dialogue[index])
+        if (isTyping != true && dialogueText.text == dialogue[index])
         {
             continueButton.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Return))
@@ -134,6 +134,7 @@ public class EnterDialogue : MonoBehaviour
             show = true;
             zeroText();
             stopTyping = true;
+            isTyping = false;
         }
     }
 }
