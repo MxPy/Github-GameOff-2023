@@ -20,8 +20,7 @@ public class MoveWithBeat : MonoBehaviour
     }
     void Update()
     {
-        if(musicLoader.musicStarted){
-            gameObject.transform.Translate(direction * (Time.deltaTime*(distance/time)));
-        }
+        gameObject.transform.Translate(direction * (Time.deltaTime*(distance/time)));
+        
     }
 }

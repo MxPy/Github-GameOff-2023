@@ -1,96 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+ 
 public class PlayerContorller : MonoBehaviour
-{   
-    private float jump;
-    public bool isGrounded, hitWall;
-    private float moveVelocity;
-    private VariableTimer timer;
-    
-    [SerializeField] private float speed;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private int gravity = 3;
 
-    //for animation
-    public Animator animator;
-    public Vector2 facing;
-    
     void Start()
     {
-        jump = 5*gravity;
-        timer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
+        rigidBody2D = GetComponent<Rigidbody2D>();
+        circleCollider2D = GetComponent<CircleCollider2D>();
     }
+ 
     void Update()
     {
-        facing.x = Input.GetAxisRaw("Horizontal");
-        facing.y = Input.GetAxisRaw("Vertical");
+        if (!isOnGround()) horizontal = Input.GetAxisRaw("Horizontal") * speed;
+        else horizontal = 0;
+ 
+        // play correct animations while moving...
+        //if(isOnGround() && horizontal.Equals(0))
+            //GetComponent<Animator>().Play("Player_Idle_Right");
+         
+        if (isOnGround() && Input.GetKeyDown(KeyCode.Space)) jump = true;
 
-        if(facing != Vector2.zero){
-            animator.SetFloat("Horizontal", facing.x);
-        }
-
-       JumpingAnimation();
-       movement();
-    }
-
-    void JumpingAnimation(){
-        animator.SetBool("isGrounded", isGrounded);
-        if (rb.velocity.y > 0) {animator.SetBool("isFalling", false);}
-        else{animator.SetBool("isFalling", true);}
-    }
-
-    public void Jump(){
-        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
-    }
-
-    //player movement
-    void movement(){
-         if(isGrounded == true){
-            // attack 
-            //jump on space for debug
-            if (Input.GetKey(KeyCode.Space)){
-                animator.SetBool("IsAttack", true);
-                GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
-                animator.SetBool("IsAttack", false);
+        Debug.Log(isOnGround());
+ 
+        if (!isOnGround())
+        {
+            if (lastJumpY < transform.position.y)
+            {
+                lastJumpY = transform.position.y;
+                //GetComponent<Animator>().Play("Player_Jump_Up_Right");
             }
-            // moving UpSide
-            if(rb.velocity.y != 0){
-                rb.gravityScale = gravity;
             }
             // moving on ground
             else {
                     rb.gravityScale = gravity*2;
                 }
         }
-        moveVelocity = 0;
-        if (isGrounded == false && Input.GetKey(KeyCode.LeftArrow) && hitWall == false){
-            moveVelocity = -speed;
-            
-        }
-        if (isGrounded == false && Input.GetKey(KeyCode.RightArrow) && hitWall == false){
-            moveVelocity = speed;
-        }
-        if(timer.finished){
-        }
-        GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
     }
-
-    // ending of attack animation trigged form animation event 
-    public void BackFromAttack(){
-        animator.SetBool("IsAttack", false);
-    }
-    
-    private void OnTriggerStay2D(Collider2D other) {
-        if(isGrounded == false){
-            hitWall = true;
+ 
+    void FixedUpdate()
+    {
+        float moveFactor = horizontal * Time.fixedDeltaTime;
+ 
+        rigidBody2D.velocity = new Vector2(moveFactor * 10f, rigidBody2D.velocity.y);
+ 
+        if (moveFactor > 0 && !isFacingRight)    flipSprite();
+        else if(moveFactor < 0 && isFacingRight) flipSprite();
+ 
+        if (jump)
+        {
+            rigidBody2D.velocity = Vector2.up * jumpvel;
+            jump = false;
         }
-        
     }
-    private void OnTriggerExit2D(Collider2D other) {
-        if(isGrounded == false){
-            hitWall = false;
-        }
+ 
+    private void flipSprite()
+    {
+        isFacingRight = !isFacingRight;
+ 
+        Vector3 transformScale = transform.localScale;
+        transformScale.x *= -1;
+        transform.localScale = transformScale;
+    }
+ 
+    public bool isOnGround()
+    {
+        RaycastHit2D hit = Physics2D.CircleCast(circleCollider2D.bounds.center, circleCollider2D.radius, Vector2.down, 0.3f, groundLayer);
+        if (hit && !lastJumpY.Equals(0)) lastJumpY = 0;
+        return hit.collider != null;
     }
 }

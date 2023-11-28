@@ -68,11 +68,11 @@ public class TargetContorller : MonoBehaviour
         }
     }
     void TimersLogicContorller(){
-        if(noteEnterWindowTimer.started == true && noteEnterWindowTimer.finished == false && noteKeyWindowTimer.started == true && noteKeyWindowTimer.finished == false && jumped == false){
+        if(playerContorller.isOnGround() && noteEnterWindowTimer.started == true && noteEnterWindowTimer.finished == false && noteKeyWindowTimer.started == true && noteKeyWindowTimer.finished == false && jumped == false){
             //Debug.Log(noteNow);
             //Debug.Log("key "+keyPressedValue);
             if(noteNow == keyPressedValue){
-                playerContorller.Jump();
+                playerContorller.jump = true;
                 jumped = true;
             }
         }
