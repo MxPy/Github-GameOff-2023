@@ -32,18 +32,24 @@ public class PlayerContorller : MonoBehaviour
          
         if (isOnGround() && Input.GetKeyDown(KeyCode.Space)) jump = true;
 
-        Debug.Log(isOnGround());
+       // Debug.Log(isOnGround());
+
+        if(isOnGround()) GetComponent<Animator>().SetBool("isGrounded", true);
+        else{
+            GetComponent<Animator>().SetBool("isGrounded", false);
+            GetComponent<Animator>().SetBool("isFalling", false);
+        } 
  
         if (!isOnGround())
         {
             if (lastJumpY < transform.position.y)
             {
                 lastJumpY = transform.position.y;
-                //GetComponent<Animator>().Play("Player_Jump_Up_Right");
+                GetComponent<Animator>().SetBool("isFalling", false);
             }
             else if(lastJumpY > transform.position.y)
             {
-                //GetComponent<Animator>().Play("Player_Jump_Down_Right");
+                GetComponent<Animator>().SetBool("isFalling", true);
             }
         }
     }
@@ -78,5 +84,9 @@ public class PlayerContorller : MonoBehaviour
         RaycastHit2D hit = Physics2D.CircleCast(circleCollider2D.bounds.center, circleCollider2D.radius, Vector2.down, 0.3f, groundLayer);
         if (hit && !lastJumpY.Equals(0)) lastJumpY = 0;
         return hit.collider != null;
+    }
+
+    public void BackFromAttack(){
+        //animator.SetBool("IsAttack", false);
     }
 }
