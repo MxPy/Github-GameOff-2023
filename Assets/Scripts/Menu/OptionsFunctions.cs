@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
 
 public class OptionsFunctions : MonoBehaviour
 {
     public AudioMixer mixer;
-    public string SceneToLoad;
     public GameObject container;
     public GameObject optionsContainer;
 
@@ -22,11 +20,6 @@ public class OptionsFunctions : MonoBehaviour
         mixer.SetFloat("Volume", volume);
     }
 
-    public void LoadScene(){
-        if(SceneToLoad != null){
-            SceneManager.LoadScene(SceneToLoad);
-        }
-    }
     public void ShowOptions(){
         if (container != null && optionsContainer != null){
             container.SetActive(false);
