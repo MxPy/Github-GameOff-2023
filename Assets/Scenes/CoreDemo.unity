@@ -1209,6 +1209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteEnter: 0
+  noteTarget: {fileID: 0}
 --- !u!1 &1596087653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,6 +1357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteEnter: 0
+  noteTarget: {fileID: 0}
 --- !u!1 &1678188604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,6 +1859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteEnter: 0
+  noteTarget: {fileID: 0}
 --- !u!1 &2035816142
 GameObject:
   m_ObjectHideFlags: 0

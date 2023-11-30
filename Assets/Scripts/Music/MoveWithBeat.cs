@@ -23,4 +23,8 @@ public class MoveWithBeat : MonoBehaviour
         gameObject.transform.Translate(direction * (Time.deltaTime*(distance/time)));
         
     }
+
+    public void test(){
+        
+    }
 }

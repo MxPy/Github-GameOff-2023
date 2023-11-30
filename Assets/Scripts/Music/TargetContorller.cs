@@ -143,4 +143,14 @@ public class TargetContorller : MonoBehaviour
         keyW.color = Color.white;
         keyE.color = Color.white;
     }
+
+    public void DestroyTopNote(){
+        if(top.noteTarget != null) Destroy(top.noteTarget);
+    }
+    public void DestroyMiddleNote(){
+        if(middle.noteTarget != null) Destroy(middle.noteTarget);
+    }
+    public void DestroyBottomNote(){
+        if(bottom.noteTarget != null) Destroy(bottom.noteTarget);
+    }
 }
