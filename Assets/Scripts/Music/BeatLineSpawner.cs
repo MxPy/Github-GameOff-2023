@@ -18,7 +18,7 @@ public class BeatLineSpawner : MonoBehaviour
     void Start(){
         Setup();
         GenerateSpawnerArray();
-        timer.StartTimer(secPerBeat*2);
+        timer.StartTimer(0);
     }
 
     private void FixedUpdate() {
@@ -81,6 +81,7 @@ public class BeatLineSpawner : MonoBehaviour
         topSpawnPosY = topLineTarget.transform.position.y;
         middleSpawnPosY = middleLineTarget.transform.position.y;
         bottomSpawnPosY = bottomLineTarget.transform.position.y;
+        SpawnPosX = topLineTarget.transform.position.x+12;
         secPerBeat = musicLoader.secPerBeat;
         notesToSpawn = new Stack<int>();
     }
