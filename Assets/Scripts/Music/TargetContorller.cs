@@ -84,6 +84,9 @@ public class TargetContorller : MonoBehaviour
                 jumped = true;
                 message.SetActive(true);
                 message.GetComponent<SpriteRenderer>().sprite = goodMessage;
+                if(top.noteTarget != null) Destroy(top.noteTarget);
+                if(middle.noteTarget != null) Destroy(middle.noteTarget);
+                if(bottom.noteTarget != null) Destroy(bottom.noteTarget);
             }
             
         }else{
