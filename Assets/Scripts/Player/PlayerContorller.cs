@@ -14,6 +14,8 @@ public class PlayerContorller : MonoBehaviour
     float lastJumpY = 0;
     private bool isFacingRight = true;
     public bool jump = false;
+
+    public int playerScore = 0;
  
     void Start()
     {
@@ -67,6 +69,7 @@ public class PlayerContorller : MonoBehaviour
         {
             rigidBody2D.velocity = Vector2.up * jumpvel;
             jump = false;
+            playerScore++;
         }
     }
  

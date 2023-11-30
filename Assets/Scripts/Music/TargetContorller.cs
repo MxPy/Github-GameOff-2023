@@ -84,6 +84,9 @@ public class TargetContorller : MonoBehaviour
                 jumped = true;
                 message.SetActive(true);
                 message.GetComponent<SpriteRenderer>().sprite = goodMessage;
+                if(top.noteTarget != null) top.noteTarget.GetComponent<Animator>().Play("top_Note_Destroy");
+                if(middle.noteTarget != null) middle.noteTarget.GetComponent<Animator>().Play("middle_Note_Destroy");
+                if(bottom.noteTarget != null) bottom.noteTarget.GetComponent<Animator>().Play("Note_Destroy");
             }
             
         }else{
@@ -139,5 +142,21 @@ public class TargetContorller : MonoBehaviour
         keyQ.color = Color.white;
         keyW.color = Color.white;
         keyE.color = Color.white;
+    }
+
+    public void DestroyTopNote(GameObject target){
+        target.GetComponent<Animator>().Play("top_Note_idle");
+        Destroy(target);
+        
+    }
+    public void DestroyMiddleNote(GameObject target){
+        target.GetComponent<Animator>().Play("middle_Note_idle");
+        Destroy(target);
+        
+    }
+    public void DestroyBottomNote(GameObject target){
+        target.GetComponent<Animator>().Play("bottom_Note_idle");
+        Destroy(target);
+        
     }
 }
