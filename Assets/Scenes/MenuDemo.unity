@@ -221,6 +221,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1140861148}
+        m_TargetAssemblyTypeName: TextOnHover, Assembly-CSharp
+        m_MethodName: HideArrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &69254361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5252ff5ee9aca594996fbaab45943421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverImage: {fileID: 1613030824}
 --- !u!114 &69254364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,7 +833,7 @@ AudioSource:
   m_GameObject: {fileID: 458499156}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: dcc23c4d39693dd4fa09238f52431f54, type: 2}
   m_audioClip: {fileID: 8300000, guid: ba01a3f1b92900a48bdc350ccf58fcc4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -2003,6 +2014,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 666795234}
+        m_TargetAssemblyTypeName: TextOnHover, Assembly-CSharp
+        m_MethodName: HideArrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1519252890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2053,7 +2076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5252ff5ee9aca594996fbaab45943421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverImage: {fileID: 1475592989}
 --- !u!1 &1582482900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,6 +2340,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 417086569}
+        m_TargetAssemblyTypeName: TextOnHover, Assembly-CSharp
+        m_MethodName: HideArrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1686912418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2368,7 +2402,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5252ff5ee9aca594996fbaab45943421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverImage: {fileID: 2012535070}
 --- !u!1 &1696856564
 GameObject:
   m_ObjectHideFlags: 0

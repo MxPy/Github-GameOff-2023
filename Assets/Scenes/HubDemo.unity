@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 25275875}
   - component: {fileID: 25275874}
   - component: {fileID: 25275873}
-  - component: {fileID: 25275872}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -164,19 +163,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0050055, y: 58.39}
   m_SizeDelta: {x: 383.68, y: 116.78}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &25275872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25275870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5252ff5ee9aca594996fbaab45943421, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverImage: {fileID: 2142600306}
 --- !u!114 &25275873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +210,18 @@ MonoBehaviour:
       - m_Target: {fileID: 883718859}
         m_TargetAssemblyTypeName: OptionsFunctions, Assembly-CSharp
         m_MethodName: ShowOptions
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1224624400}
+        m_TargetAssemblyTypeName: TextOnHover, Assembly-CSharp
+        m_MethodName: HideArrow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2019,7 +2017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a73041e9f0db444b28e226bff57923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: dcc23c4d39693dd4fa09238f52431f54, type: 2}
+  mixer: {fileID: 24100000, guid: 84b07c6722b5d824c890ab7b296216b2, type: 2}
   container: {fileID: 1275866531}
   optionsContainer: {fileID: 883718857}
 --- !u!1 &890587547
@@ -2080,7 +2078,6 @@ GameObject:
   - component: {fileID: 943346263}
   - component: {fileID: 943346262}
   - component: {fileID: 943346261}
-  - component: {fileID: 943346260}
   - component: {fileID: 943346264}
   m_Layer: 5
   m_Name: MenuButton
@@ -2110,19 +2107,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -58.39001}
   m_SizeDelta: {x: 383.68, y: 116.78}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &943346260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943346258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5252ff5ee9aca594996fbaab45943421, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverImage: {fileID: 426566862}
 --- !u!114 &943346261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2170,6 +2154,30 @@ MonoBehaviour:
       - m_Target: {fileID: 943346264}
         m_TargetAssemblyTypeName: SceneLoadOptions, Assembly-CSharp
         m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1755065833}
+        m_TargetAssemblyTypeName: TextOnHover, Assembly-CSharp
+        m_MethodName: HideArrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1374528156}
+        m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
+        m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2383,7 +2391,6 @@ GameObject:
   - component: {fileID: 1078722254}
   - component: {fileID: 1078722253}
   - component: {fileID: 1078722252}
-  - component: {fileID: 1078722251}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -2412,19 +2419,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 178.24}
   m_SizeDelta: {x: 383.68, y: 116.78}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1078722251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078722249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5252ff5ee9aca594996fbaab45943421, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverImage: {fileID: 348739278}
 --- !u!114 &1078722252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2472,6 +2466,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1374528156}
         m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
         m_MethodName: ResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 776326195}
+        m_TargetAssemblyTypeName: TextOnHover, Assembly-CSharp
+        m_MethodName: HideArrow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2605,7 +2611,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5252ff5ee9aca594996fbaab45943421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverImage: {fileID: 426566862}
 --- !u!114 &1115529944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2653,6 +2658,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1115529943}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
         m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2109294773}
+        m_TargetAssemblyTypeName: TextOnHover, Assembly-CSharp
+        m_MethodName: HideArrow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3709,6 +3726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1374528155}
   - component: {fileID: 1374528156}
+  - component: {fileID: 1374528157}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3744,6 +3762,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 862536691}
+--- !u!82 &1374528157
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374528153}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 84b07c6722b5d824c890ab7b296216b2, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 3ef3644043b535d4681284c9ad3a8214, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1386473670
 GameObject:
   m_ObjectHideFlags: 0

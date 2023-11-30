@@ -6,7 +6,7 @@ AudioMixerController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MainMenu
+  m_Name: Hub
   m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
@@ -16,11 +16,11 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: 38db80c2b63640245bcd909d5713c7ea
+  - guid: 78005a5b5905ae44f8fb3d1c5112840e
     name: Volume
   m_AudioMixerGroupViews:
   - guids:
-    - b49089c0b6fa09446914f6b41f06bba5
+    - de0395813c6fa1747848c0fed0ff94e8
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -32,14 +32,14 @@ AudioMixerGroupController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Master
   m_AudioMixer: {fileID: 24100000}
-  m_GroupID: b49089c0b6fa09446914f6b41f06bba5
+  m_GroupID: de0395813c6fa1747848c0fed0ff94e8
   m_Children: []
-  m_Volume: 38db80c2b63640245bcd909d5713c7ea
-  m_Pitch: e677de7218c2d084b860e95456d44b74
+  m_Volume: 78005a5b5905ae44f8fb3d1c5112840e
+  m_Pitch: de31f7422c4f11e4fbe5aca3b2ee505c
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 3
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -50,9 +50,9 @@ AudioMixerEffectController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_EffectID: 2e3f48ba654ad3646a0c154f8fa391c4
+  m_EffectID: 2cd7657af4da1a047b5498a82774d489
   m_EffectName: Attenuation
-  m_MixLevel: 623fe878c1aee2541ae8ad66ba90e561
+  m_MixLevel: d99099dc2025e614693d26f54f906b1b
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
@@ -65,7 +65,7 @@ AudioMixerSnapshotController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
-  m_SnapshotID: ac761dda8f06d9540842519e59bda9ca
+  m_SnapshotID: cf1f4037711c8f2479d2375f449febb8
   m_FloatValues:
-    38db80c2b63640245bcd909d5713c7ea: -0.08374829
+    78005a5b5905ae44f8fb3d1c5112840e: 0
   m_TransitionOverrides: {}
