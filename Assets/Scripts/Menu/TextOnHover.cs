@@ -26,4 +26,8 @@ public class TextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             hoverImage.SetActive(false);
         }
     }
+
+    public void HideArrow(){
+        hoverImage.SetActive(false);
+    }
 }
