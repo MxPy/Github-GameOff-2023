@@ -6,7 +6,6 @@ using TMPro;
 
 public class WriteText : MonoBehaviour
 {
-    public bool show = true;
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
     public string[] dialogue;
@@ -27,24 +26,12 @@ public class WriteText : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (!isTyping)
-            {
-                show = false;
+        if (Input.GetKeyDown(KeyCode.E)){
+            if (!isTyping){
                 stopTyping = false;
-
-                if (dialoguePanel.activeInHierarchy)
-                {
-                    zeroText();
-                }
-                else
-                {
-                    dialoguePanel.SetActive(true);
-                    if(stopTyping == false){
-                        StartCoroutine(Typing());
-                    }
-                }
+				if(stopTyping == false){
+					StartCoroutine(Typing());
+				}
             }
         }
 
@@ -65,7 +52,6 @@ public class WriteText : MonoBehaviour
     {
         dialogueText.text = "";
         index = 0;
-        dialoguePanel.SetActive(true);
         stopTyping = true;
     }
 
