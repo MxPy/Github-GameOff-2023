@@ -79,12 +79,12 @@ public class EnterDialogue : MonoBehaviour
                 }
             }
         }
+    }
 
-        if(indexCounter == 3){
-            StartCoroutine(Wait());
-            if(sceneToLoad != null){
-                SceneManager.LoadScene(sceneToLoad);
-            }
+    private void loadTutorial(){
+        StartCoroutine(Wait());
+        if(sceneToLoad != null){
+            SceneManager.LoadScene(sceneToLoad);
         }
     }
 
@@ -98,7 +98,7 @@ public class EnterDialogue : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(80);
     }
 
     IEnumerator Typing()
@@ -116,6 +116,9 @@ public class EnterDialogue : MonoBehaviour
         waitForInput = true;
         isTyping = false;
         indexCounter++;
+        if(indexCounter == 4){
+            loadTutorial();
+        }
     }
 
     public void NextLine()
