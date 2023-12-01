@@ -8,23 +8,22 @@ public class IntroSlides : MonoBehaviour
     // for images
     public Sprite[] imageArray;
     public Image image;
-    public float slideDuration = 2f; // time for an image
-    private int currentIndex = 0;
+    public float waitDuration = 2f; // time to wait for after text is written
+    private int indexImage = 0;
 
     // for text
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
     public string[] dialogue;
-    private int index;
-    private bool waitForInput;
+    private int indexText;
     private bool stopTyping;
-    private bool isTyping;
+    private bool isTyping = false;
     public float wordSpeed;
 
     void Start()
     {
+        indexText = 0;
         zeroText();
-        this.isTyping = false;
         if (image == null)
         {
             Debug.LogError("Image not found");
@@ -32,7 +31,7 @@ public class IntroSlides : MonoBehaviour
         }
 
         //start intro
-        StartCoroutine(NextImage());
+        NextImage();
         if(!this.isTyping){
             stopTyping = false;
             StartCoroutine(Typing());
@@ -41,23 +40,23 @@ public class IntroSlides : MonoBehaviour
 
     void Update()
     {
-        if (dialogueText.text == dialogue[index])
+        if (!isTyping && dialogueText.text == dialogue[indexText])
         {
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                if (waitForInput)
-                {
-                    NextLine();
-                    waitForInput = false;
-                }
-            }
+            StartCoroutine(Wait(waitDuration));
         }
     }
+
+    IEnumerator Wait(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        NextLine();
+    }
+
     // images methods
     private void NextImage()
     {
-        image.sprite = imageArray[currentIndex];
-        currentIndex++;
+        image.sprite = imageArray[indexImage];
+        indexImage++;
     }
 
     // text methods
@@ -65,30 +64,29 @@ public class IntroSlides : MonoBehaviour
     public void zeroText()
     {
         dialogueText.text = "";
-        index = 0;
+        indexText = 0;
         stopTyping = true;
     }
 
     IEnumerator Typing()
     {
         isTyping = true;
-        foreach (char letter in dialogue[index].ToCharArray())
+        foreach (char letter in dialogue[indexText].ToCharArray())
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(wordSpeed);
         }
-        waitForInput = true;
         isTyping = false;
     }
 
     public void NextLine()
     {
-        if (index < dialogue.Length - 1)
+        if (indexText < dialogue.Length - 1)
         {
-            index++;
+            indexText++;
             dialogueText.text = "";
             if(stopTyping == false){
-            StartCoroutine(Typing());
+                StartCoroutine(Typing());
             }
         }
         else
@@ -96,5 +94,4 @@ public class IntroSlides : MonoBehaviour
             zeroText();
         }
     }
-
 }
