@@ -12,9 +12,10 @@ public class PlayerContorller : MonoBehaviour
  
     float horizontal = 0f;
     float lastJumpY = 0;
+    public int HP = 3;
     private bool isFacingRight = true;
     public bool jump = false;
-
+    public GameObject startPlatform;
     public int playerScore = 0;
  
     void Start()
@@ -69,6 +70,7 @@ public class PlayerContorller : MonoBehaviour
         {
             rigidBody2D.velocity = Vector2.up * jumpvel;
             jump = false;
+            startPlatform.SetActive(false);
             playerScore++;
         }
     }
