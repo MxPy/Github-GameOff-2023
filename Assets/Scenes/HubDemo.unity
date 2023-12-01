@@ -932,8 +932,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -786.17, y: 77.92}
-  m_SizeDelta: {x: 206.45, y: 86.68}
+  m_AnchoredPosition: {x: -525.44, y: 77.92}
+  m_SizeDelta: {x: 727.9, y: 86.681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &376595773
 MonoBehaviour:
@@ -955,7 +955,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Elacs
+  m_text: weird balance dude
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1254,11 +1254,14 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1365799455}
   dialogueText: {fileID: 1410324833}
   dialogue:
-  - Part one
-  - Part two
-  - Part three
+  - Welcome little guy! Mastering the controls is key to your success. Let me guide
+    you through the basics. Firstly - click enter to continue!
+  - Timing is everything when leaping onto platforms. Hit the note at the perfect
+    moment, and while airborne, finesse the arrow keys to direct your descent.
+  - " Pick your landing spot wisely to avoid any mishaps \u2013 we wouldn't want
+    you tumbling off those platforms!"
   continueButton: {fileID: 730294961}
-  wordSpeed: 0.1
+  wordSpeed: 0.07
   playerIsClose: 0
 --- !u!1 &615513203
 GameObject:
