@@ -12,17 +12,15 @@ public class IntroSlides : MonoBehaviour
     private int indexImage = 0;
 
     // for text
-    public GameObject dialoguePanel;
-    public TMP_Text dialogueText;
-    public string[] dialogue;
+    public GameObject textPanel;
+    public TMP_Text textLine;
+    public string[] textLineArray;
     private int indexText;
-    private bool stopTyping;
     private bool isTyping = false;
     public float wordSpeed;
 
     void Start()
     {
-        indexText = 0;
         zeroText();
         if (image == null)
         {
@@ -32,24 +30,17 @@ public class IntroSlides : MonoBehaviour
 
         //start intro
         NextImage();
-        if(!this.isTyping){
-            stopTyping = false;
-            StartCoroutine(Typing());
-        }
+        StartCoroutine(StartTyping());
     }
 
     void Update()
     {
-        if (!isTyping && dialogueText.text == dialogue[indexText])
-        {
-            StartCoroutine(Wait(waitDuration));
-        }
+
     }
 
     IEnumerator Wait(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        NextLine();
     }
 
     // images methods
@@ -61,37 +52,40 @@ public class IntroSlides : MonoBehaviour
 
     // text methods
 
+    private IEnumerator StartTyping()
+    {
+        while(indexText < textLineArray.Length){
+            isTyping = true;
+            yield return StartCoroutine(Typing());
+            isTyping = false;
+
+            yield return StartCoroutine(Wait(waitDuration));
+            NextImage();
+            NextLine();
+        }
+    }
+
     public void zeroText()
     {
-        dialogueText.text = "";
+        textLine.text = "";
         indexText = 0;
-        stopTyping = true;
     }
 
     IEnumerator Typing()
     {
-        isTyping = true;
-        foreach (char letter in dialogue[indexText].ToCharArray())
+        foreach (char letter in textLineArray[indexText].ToCharArray())
         {
-            dialogueText.text += letter;
+            textLine.text += letter;
             yield return new WaitForSeconds(wordSpeed);
         }
-        isTyping = false;
     }
 
     public void NextLine()
     {
-        if (indexText < dialogue.Length - 1)
+        if (indexText < textLineArray.Length - 1)
         {
             indexText++;
-            dialogueText.text = "";
-            if(stopTyping == false){
-                StartCoroutine(Typing());
-            }
-        }
-        else
-        {
-            zeroText();
+            textLine.text = "";
         }
     }
 }
