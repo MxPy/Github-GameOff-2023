@@ -6,13 +6,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class IntroSlides : MonoBehaviour
 {
-    //for test
-    public int ctr = 0;
-
-
-
     public string sceneToLoad;
-    private int slideCounter = 0;   // to check the last one 
 
     // for images
     public Sprite[] imageArray;
@@ -62,18 +56,9 @@ public class IntroSlides : MonoBehaviour
                 yield return StartCoroutine(Wait(waitDuration));
                 NextImage();
                 NextLine();
-                slideCounter++;
-                Debug.LogError(indexText);
-
-                ctr++;
-            }
-            //test
-            ctr++;
-            Debug.LogError(ctr);
-            
+            }     
             NextImage();
             yield return StartCoroutine(Wait(waitDuration));
-            slideCounter++;
         }
         NextImage();
         yield return StartCoroutine(Wait(3f));
