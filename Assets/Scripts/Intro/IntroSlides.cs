@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class IntroSlides : MonoBehaviour
 {
+    public string sceneToLoad;
+    private int slideCounter = 0;   // to check the last one 
+
     // for images
     public Sprite[] imageArray;
     public Image image;
@@ -16,7 +20,6 @@ public class IntroSlides : MonoBehaviour
     public TMP_Text textLine;
     public string[] textLineArray;
     private int indexText;
-    private bool isTyping = false;
     public float wordSpeed;
 
     void Start()
@@ -35,7 +38,11 @@ public class IntroSlides : MonoBehaviour
 
     void Update()
     {
-
+        if(slideCounter == 16){
+            NextImage();
+            Wait(3f);
+            LoadScene();
+        }
     }
 
     IEnumerator Wait(float waitTime)
@@ -51,17 +58,15 @@ public class IntroSlides : MonoBehaviour
     }
 
     // text methods
-
     private IEnumerator StartTyping()
     {
         while(indexText < textLineArray.Length){
-            isTyping = true;
             yield return StartCoroutine(Typing());
-            isTyping = false;
-
             yield return StartCoroutine(Wait(waitDuration));
             NextImage();
             NextLine();
+            slideCounter++;
+            Debug.LogError(indexText);
         }
     }
 
@@ -82,10 +87,13 @@ public class IntroSlides : MonoBehaviour
 
     public void NextLine()
     {
-        if (indexText < textLineArray.Length - 1)
-        {
-            indexText++;
-            textLine.text = "";
+        indexText++;
+        textLine.text = "";
+    }
+
+    public void LoadScene(){
+        if(sceneToLoad != null){
+            SceneManager.LoadScene(sceneToLoad);
         }
     }
 }
