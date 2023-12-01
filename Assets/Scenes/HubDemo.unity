@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017207fd14d55a442858679a3faa10fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: CoreDemo
+  sceneToLoad: FirstFight
 --- !u!95 &135747554
 Animator:
   serializedVersion: 5
@@ -955,7 +955,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Name
+  m_text: Elacs
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

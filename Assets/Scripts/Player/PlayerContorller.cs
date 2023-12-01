@@ -15,7 +15,7 @@ public class PlayerContorller : MonoBehaviour
     float horizontal = 0f;
     float lastJumpY = 0;
     public int HP = 3;
-    private bool isFacingRight = true;
+    private bool isFacingRight = false;
     public bool jump = false, isAttacking = false;
     public GameObject startPlatform, bullet;
     public int playerScore = 0;
