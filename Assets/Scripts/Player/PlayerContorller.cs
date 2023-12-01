@@ -12,9 +12,10 @@ public class PlayerContorller : MonoBehaviour
  
     float horizontal = 0f;
     float lastJumpY = 0;
+    public int HP = 3;
     private bool isFacingRight = true;
     public bool jump = false;
-
+    public GameObject startPlatform, bullet;
     public int playerScore = 0;
  
     void Start()
@@ -32,7 +33,7 @@ public class PlayerContorller : MonoBehaviour
         //if(isOnGround() && horizontal.Equals(0))
             //GetComponent<Animator>().Play("Player_Idle_Right");
          
-        if (isOnGround() && Input.GetKeyDown(KeyCode.Space)) jump = true;
+        if (isOnGround() && Input.GetKeyDown(KeyCode.Space)) GetComponent<Animator>().SetBool("IsAttack", true);
 
        // Debug.Log(isOnGround());
 
@@ -69,8 +70,14 @@ public class PlayerContorller : MonoBehaviour
         {
             rigidBody2D.velocity = Vector2.up * jumpvel;
             jump = false;
+            startPlatform.SetActive(false);
             playerScore++;
         }
+    }
+
+    void Spawn () {    
+        Vector3 spawnPosition = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
+            Instantiate (bullet, spawnPosition, Quaternion.Euler(0, 0, 0));
     }
  
     private void flipSprite()
@@ -90,6 +97,8 @@ public class PlayerContorller : MonoBehaviour
     }
 
     public void BackFromAttack(){
-        //animator.SetBool("IsAttack", false);
+        GetComponent<Animator>().SetBool("IsAttack", false);
+        Spawn();
+        //Debug.Log("chuj");
     }
 }
