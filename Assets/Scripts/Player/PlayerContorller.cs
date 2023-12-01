@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
  
 public class PlayerContorller : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlayerContorller : MonoBehaviour
     public bool jump = false;
     public GameObject startPlatform, bullet;
     public int playerScore = 0;
+    public TMP_Text scoreText;
  
     void Start()
     {
@@ -72,6 +74,7 @@ public class PlayerContorller : MonoBehaviour
             jump = false;
             startPlatform.SetActive(false);
             playerScore++;
+            scoreText.text = playerScore.ToString();
         }
     }
 
