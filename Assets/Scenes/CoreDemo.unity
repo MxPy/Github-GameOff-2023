@@ -4537,6 +4537,7 @@ GameObject:
   - component: {fileID: 1678188608}
   - component: {fileID: 1678188609}
   - component: {fileID: 1678188610}
+  - component: {fileID: 1678188611}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: MusicLoader
@@ -4596,7 +4597,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -4734,6 +4735,20 @@ MonoBehaviour:
   musicLoader: {fileID: 1678188605}
   startPlatform: {fileID: 2024907587}
   player: {fileID: 79811570}
+--- !u!114 &1678188611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678188604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fea528bfc88d70449e070365ee6d00d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pause: {fileID: 1513501864}
+  audioSource: {fileID: 1678188607}
 --- !u!1 &1853097541
 GameObject:
   m_ObjectHideFlags: 0
