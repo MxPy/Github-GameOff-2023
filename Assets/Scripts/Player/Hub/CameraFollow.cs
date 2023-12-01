@@ -8,6 +8,9 @@ public class CameraFollow : MonoBehaviour
     public float followSpeed = 2f;
     public string targetTag = "Player";
 
+    //public float offsetX = 2f;
+    //public float offsetY = 2f;
+    public float minYPosition = -20f;
     void Start()
     {
 
@@ -21,13 +24,15 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
-    // offset is not set for now
-    public float offsetY = 1f;
-    public float offsetX = 1f;
-
     void Update()
     {
-        Vector3 changedPosition = new Vector3(target.position.x, target.position.y, -10f);
+        if (target == null){
+            return;
+        }
+
+        float targetY = Mathf.Max(target.position.y, minYPosition);
+
+        Vector3 changedPosition = new Vector3(target.position.x, targetY, -10f);
         transform.position = Vector3.Slerp(transform.position, changedPosition, followSpeed * Time.deltaTime);
 
     }
