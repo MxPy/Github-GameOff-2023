@@ -97,7 +97,7 @@ public class BeatLineSpawner : MonoBehaviour
         // 7 - top/mid/bot notes - 5%
 
         System.Random random = new();
-        for (int i = 0; i < musicLoader.songLenInBeats; ++i)
+        for (int i = 0; i < musicLoader.songLenInBeats*3; ++i)
         {
             int randomNumber = random.Next(1, 101);
             int noteToSpawn = 0;
