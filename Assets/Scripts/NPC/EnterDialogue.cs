@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EnterDialogue : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class EnterDialogue : MonoBehaviour
     private bool waitForInput;
     private bool stopTyping;
     private bool isTyping;
+    private int indexCounter = 0;
+
+    public string sceneToLoad;
 
     public GameObject continueButton;
     
@@ -77,12 +81,24 @@ public class EnterDialogue : MonoBehaviour
         }
     }
 
+    private void loadTutorial(){
+        StartCoroutine(Wait());
+        if(sceneToLoad != null){
+            SceneManager.LoadScene(sceneToLoad);
+        }
+    }
+
     public void zeroText()
     {
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
         stopTyping = true;
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(80);
     }
 
     IEnumerator Typing()
@@ -99,6 +115,10 @@ public class EnterDialogue : MonoBehaviour
         }
         waitForInput = true;
         isTyping = false;
+        indexCounter++;
+        if(indexCounter == 4){
+            loadTutorial();
+        }
     }
 
     public void NextLine()
