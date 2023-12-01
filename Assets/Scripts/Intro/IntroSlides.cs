@@ -52,6 +52,7 @@ public class IntroSlides : MonoBehaviour
     {
         while(indexImage < imageArray.Length - 1){
             while(indexText < textLineArray.Length){
+                yield return StartCoroutine(Wait(1f));
                 yield return StartCoroutine(Typing());
                 yield return StartCoroutine(Wait(waitDuration));
                 NextImage();
@@ -61,7 +62,7 @@ public class IntroSlides : MonoBehaviour
             yield return StartCoroutine(Wait(waitDuration));
         }
         NextImage();
-        yield return StartCoroutine(Wait(3f));
+        yield return StartCoroutine(Wait(2f));
         LoadScene();
     }
 

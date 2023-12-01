@@ -571,7 +571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade998606a988c1449029cc7b108120a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ctr: 0
   sceneToLoad: MenuDemo
   imageArray:
   - {fileID: 21300000, guid: 1abe8df97b6baea4e96a4454b5258681, type: 3}
@@ -593,14 +592,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2b39ed74344ee884bb4dc493562f920e, type: 3}
   - {fileID: 21300000, guid: fd76c323198cfcc41b4b43ecd94536f6, type: 3}
   image: {fileID: 1179443888}
-  waitDuration: 0.5
+  waitDuration: 2
   textPanel: {fileID: 117833421}
   textLine: {fileID: 439836094}
   textLineArray:
   - aaaaa
   - bbb
   - ccccccc
-  wordSpeed: 0.1
+  wordSpeed: 0.15
 --- !u!114 &1179443888
 MonoBehaviour:
   m_ObjectHideFlags: 0
