@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class IntroSlides : MonoBehaviour
 {
-    public Sprite[] imageArray; //array
+    public Sprite[] imageArray;
     public Image image;
-    public float slideDuration = 2f; // time for a slide
+    public float slideDuration = 2f; // time for an image
 
     private int currentIndex = 0;
 

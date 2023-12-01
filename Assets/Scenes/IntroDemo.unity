@@ -123,6 +123,43 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &117833421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 117833422}
+  m_Layer: 5
+  m_Name: TextPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &117833422
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117833421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 439836092}
+  m_Father: {fileID: 1179443884}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0, y: -280.93}
+  m_SizeDelta: {x: 1119.01, y: -324.12}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &439836091
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,13 +190,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1179443884}
+  m_Father: {fileID: 117833422}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.000045776, y: -0}
+  m_SizeDelta: {x: 1119, y: 314.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &439836094
 MonoBehaviour:
@@ -505,8 +542,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 439836092}
   - {fileID: 1633107002}
+  - {fileID: 117833422}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -539,6 +576,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1abe8df97b6baea4e96a4454b5258681, type: 3}
   - {fileID: 21300000, guid: 2c6e8df9d37d9d64da694220122b1ad8, type: 3}
   - {fileID: 21300000, guid: a62272c5daab51e4096533a4e72bf5c0, type: 3}
+  - {fileID: 21300000, guid: b3da20306e7b5b846a3b48aa40d75d33, type: 3}
+  - {fileID: 21300000, guid: 6e01a866e9944c5479c760331c0728dc, type: 3}
+  - {fileID: 21300000, guid: 399c8a235f55b404089d65c5cb92ebb3, type: 3}
+  - {fileID: 21300000, guid: 669f5a4ce186a6a43af0090dd36b3e99, type: 3}
+  - {fileID: 21300000, guid: 5a5a85b7814e6244db05f0cb62fc1431, type: 3}
+  - {fileID: 21300000, guid: 513e4603f262bab42965ceb3b0ba336a, type: 3}
+  - {fileID: 21300000, guid: b4068f25c6459de46a456a39e5a2579c, type: 3}
+  - {fileID: 21300000, guid: 830acfd3a018ad344b44e6a5727f12ca, type: 3}
+  - {fileID: 21300000, guid: c6cd4ec51f319364480bcd64e5e6a17b, type: 3}
+  - {fileID: 21300000, guid: e1e3d2429375efd4284e6eb9ec1a7a67, type: 3}
+  - {fileID: 21300000, guid: 950df8f2da0802b418f3a777d1f67e0a, type: 3}
+  - {fileID: 21300000, guid: 4117396ce88a06343bd60fef08880f0b, type: 3}
+  - {fileID: 21300000, guid: 75568f3d88266c2448cdc966a525390d, type: 3}
+  - {fileID: 21300000, guid: 2b39ed74344ee884bb4dc493562f920e, type: 3}
   image: {fileID: 1179443888}
   slideDuration: 2
 --- !u!114 &1179443888
@@ -561,7 +612,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1abe8df97b6baea4e96a4454b5258681, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -582,7 +633,7 @@ GameObject:
   - component: {fileID: 1633107002}
   - component: {fileID: 1633107003}
   m_Layer: 5
-  m_Name: TextWriter
+  m_Name: Writer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,7 +652,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1179443884}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -621,12 +672,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   show: 1
-  dialoguePanel: {fileID: 0}
-  dialogueText: {fileID: 0}
+  dialoguePanel: {fileID: 1179443880}
+  dialogueText: {fileID: 439836094}
   dialogue:
   - text
   - asdada
   - dadaada
   - asdadasdsa
-  wordSpeed: 0
-  playerIsClose: 0
+  wordSpeed: 1

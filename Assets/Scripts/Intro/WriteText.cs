@@ -16,20 +16,18 @@ public class WriteText : MonoBehaviour
     private bool isTyping;
     
     public float wordSpeed;
-    public bool playerIsClose;
 
     void Start(){
         zeroText();
         isTyping = false;
         waitForInput = true;
-        playerIsClose = false;
         stopTyping = true;
         
     }
 
     void Update()
     {
-        if (playerIsClose && Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (!isTyping)
             {
@@ -67,7 +65,7 @@ public class WriteText : MonoBehaviour
     {
         dialogueText.text = "";
         index = 0;
-        dialoguePanel.SetActive(false);
+        dialoguePanel.SetActive(true);
         stopTyping = true;
     }
 
@@ -76,10 +74,6 @@ public class WriteText : MonoBehaviour
         isTyping = true;
         foreach (char letter in dialogue[index].ToCharArray())
         {
-            if(playerIsClose == false){
-                zeroText();
-                break;
-            }
             dialogueText.text += letter;
             yield return new WaitForSeconds(wordSpeed);
         }
