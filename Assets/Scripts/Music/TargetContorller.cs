@@ -76,12 +76,12 @@ public class TargetContorller : MonoBehaviour
         }
     }
     void TimersLogicContorller(){
-        if(playerContorller.isOnGround() && noteEnterWindowTimer.started == true && noteEnterWindowTimer.finished == false && noteKeyWindowTimer.started == true && noteKeyWindowTimer.finished == false && jumped == false){
+        if(playerContorller.isAttacking == true || (playerContorller.isOnGround() && noteEnterWindowTimer.started == true && noteEnterWindowTimer.finished == false && noteKeyWindowTimer.started == true && noteKeyWindowTimer.finished == false && jumped == false)){
             //Debug.Log(noteNow);
             //Debug.Log("key "+keyPressedValue);
-            if(noteNow == keyPressedValue){
-                playerContorller.jump = true;
-                jumped = true;
+            if(playerContorller.isAttacking == true ||(noteNow == keyPressedValue)){
+                if(playerContorller.isAttacking == false) playerContorller.jump = true;
+                if(playerContorller.isAttacking == false) jumped = true;
                 message.SetActive(true);
                 message.GetComponent<SpriteRenderer>().sprite = goodMessage;
                 if(top.noteTarget != null) top.noteTarget.GetComponent<Animator>().Play("top_Note_Destroy");

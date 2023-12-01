@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 6389380345487773992}
   - component: {fileID: 8677142100666486402}
   - component: {fileID: 7687090833633820268}
-  - component: {fileID: 7107490191213719476}
-  - component: {fileID: 5415633634457048726}
+  - component: {fileID: 5235608336615284197}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1642360759, guid: 9067f047587d6df41bf6e3340d06469e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -121,29 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c3fdd4dd46b884eb8d32b30b193472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &7107490191213719476
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2602701026800609535}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &5415633634457048726
-BoxCollider2D:
+--- !u!58 &5235608336615284197
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -155,16 +133,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3088098, y: 0.0030748174}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 0.32}
-    newSize: {x: 1.28, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0.43276277, y: -0.0044280975}
   serializedVersion: 2
-  m_Size: {x: 0.54328793, y: 0.20667224}
-  m_EdgeRadius: 0
+  m_Radius: 0.09312777

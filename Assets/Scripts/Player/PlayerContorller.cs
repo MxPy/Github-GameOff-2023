@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
  
 public class PlayerContorller : MonoBehaviour
@@ -15,10 +16,11 @@ public class PlayerContorller : MonoBehaviour
     float lastJumpY = 0;
     public int HP = 3;
     private bool isFacingRight = true;
-    public bool jump = false;
+    public bool jump = false, isAttacking = false;
     public GameObject startPlatform, bullet;
     public int playerScore = 0;
     public TMP_Text scoreText;
+    public Slider slider;
  
     void Start()
     {
@@ -35,7 +37,10 @@ public class PlayerContorller : MonoBehaviour
         //if(isOnGround() && horizontal.Equals(0))
             //GetComponent<Animator>().Play("Player_Idle_Right");
          
-        if (isOnGround() && Input.GetKeyDown(KeyCode.Space)) GetComponent<Animator>().SetBool("IsAttack", true);
+        if (isOnGround() && Input.GetKeyDown(KeyCode.Space) && slider.value == 1){
+            isAttacking = true; 
+            GetComponent<Animator>().SetBool("IsAttack", true);
+        } 
 
        // Debug.Log(isOnGround());
 
@@ -75,6 +80,12 @@ public class PlayerContorller : MonoBehaviour
             startPlatform.SetActive(false);
             playerScore++;
             scoreText.text = playerScore.ToString();
+            if(slider.value != 1){
+                slider.value += 0.2f;
+                Color currentColor = slider.gameObject.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().color;
+                slider.gameObject.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().color = new Color(currentColor.r - 0.2f, currentColor.g + 0.2f, 0, currentColor.a);
+            }
+            
         }
     }
 
@@ -102,6 +113,13 @@ public class PlayerContorller : MonoBehaviour
     public void BackFromAttack(){
         GetComponent<Animator>().SetBool("IsAttack", false);
         Spawn();
+        RestetSlider();
+        isAttacking = false;
         //Debug.Log("chuj");
+    }
+
+    public void RestetSlider(){
+        slider.value = 0;
+        slider.gameObject.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().color = new Color(255,0,0,1);
     }
 }

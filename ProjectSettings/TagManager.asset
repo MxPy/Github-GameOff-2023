@@ -7,6 +7,8 @@ TagManager:
   - MusicLoader
   - Target
   - TargetContorller
+  - TargetTop
+  - TargetBottom
   layers:
   - Default
   - TransparentFX

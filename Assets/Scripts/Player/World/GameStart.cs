@@ -15,7 +15,7 @@ public class GameStart : MonoBehaviour
     }
 
     public void StartGame(){
-        timer.StartTimer(musicLoader.musicStartOffsetInBeats*musicLoader.secPerBeat+1f);
+        timer.StartTimer(musicLoader.secPerBeat*12);
         player.transform.position = new (startPlatform.transform.position.x, startPlatform.transform.position.y+2);
         startPlatform.SetActive(true);
     }
