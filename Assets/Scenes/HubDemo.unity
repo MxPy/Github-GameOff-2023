@@ -1261,6 +1261,7 @@ MonoBehaviour:
   - "Pick your landing spot wisely to avoid any mishaps \u2013 we wouldn't want you
     tumbling off those platforms!"
   - Now let's get you through the tutorial.
+  sceneToLoad: FirstFight
   continueButton: {fileID: 730294961}
   wordSpeed: 0.07
   playerIsClose: 0
