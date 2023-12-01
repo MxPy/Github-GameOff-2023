@@ -15,7 +15,18 @@ public class MoveWithBeat : MonoBehaviour
     private void Start() {
         musicLoader = GameObject.FindGameObjectsWithTag("MusicLoader")[0].GetComponent("MusicLoader") as MusicLoader;
         targetContorller = GameObject.FindGameObjectsWithTag("TargetContorller")[0].GetComponent("TargetContorller") as TargetContorller;
-        target = GameObject.FindGameObjectsWithTag("Target")[targetNum];
+        switch (targetNum){
+            case 0:
+                target = GameObject.FindGameObjectsWithTag("TargetTop")[0];
+                break;
+            case 1:
+                target = GameObject.FindGameObjectsWithTag("Target")[0];
+                break;
+            case 2:
+                target = GameObject.FindGameObjectsWithTag("TargetBottom")[0];
+                break;
+        }
+        
         direction = target.transform.position - transform.position;
         distance = direction.magnitude/120;
         time = musicLoader.secPerBeat;

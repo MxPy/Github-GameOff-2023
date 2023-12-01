@@ -14,14 +14,17 @@ public class DeleteHP : MonoBehaviour
                 if(playerContorller.HP == 3){
                     HP3.SetActive(false);
                     start.StartGame();
+                    playerContorller.RestetSlider();
                     playerContorller.HP--;
                 }else if(playerContorller.HP == 2){
                     HP2.SetActive(false);
                     start.StartGame();
+                    playerContorller.RestetSlider();
                     playerContorller.HP--;
                 }else if(playerContorller.HP == 1){
                     HP1.SetActive(false);
                     start.StartGame();
+                    playerContorller.RestetSlider();
                     playerContorller.HP--;
                 }else{
                     loseScreen.SetActive(true);

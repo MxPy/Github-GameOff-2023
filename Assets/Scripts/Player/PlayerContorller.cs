@@ -16,7 +16,7 @@ public class PlayerContorller : MonoBehaviour
     float lastJumpY = 0;
     public int HP = 3;
     private bool isFacingRight = true;
-    public bool jump = false;
+    public bool jump = false, isAttacking = false;
     public GameObject startPlatform, bullet;
     public int playerScore = 0;
     public TMP_Text scoreText;
@@ -37,7 +37,10 @@ public class PlayerContorller : MonoBehaviour
         //if(isOnGround() && horizontal.Equals(0))
             //GetComponent<Animator>().Play("Player_Idle_Right");
          
-        if (isOnGround() && Input.GetKeyDown(KeyCode.Space) && slider.value == 1) GetComponent<Animator>().SetBool("IsAttack", true);
+        if (isOnGround() && Input.GetKeyDown(KeyCode.Space) && slider.value == 1){
+            isAttacking = true; 
+            GetComponent<Animator>().SetBool("IsAttack", true);
+        } 
 
        // Debug.Log(isOnGround());
 
@@ -111,6 +114,7 @@ public class PlayerContorller : MonoBehaviour
         GetComponent<Animator>().SetBool("IsAttack", false);
         Spawn();
         RestetSlider();
+        isAttacking = false;
         //Debug.Log("chuj");
     }
 

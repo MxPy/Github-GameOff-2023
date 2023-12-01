@@ -224,6 +224,7 @@ MonoBehaviour:
   jumpvel: 20
   HP: 3
   jump: 0
+  isAttacking: 0
   startPlatform: {fileID: 2024907587}
   bullet: {fileID: 2602701026800609535, guid: 14247243c05bd8e47a9bf88caccd7cc0, type: 3}
   playerScore: 0
@@ -847,6 +848,7 @@ GameObject:
   - component: {fileID: 482232899}
   - component: {fileID: 482232898}
   - component: {fileID: 482232900}
+  - component: {fileID: 482232901}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -942,6 +944,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &482232901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482232897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aebf801b45e02be44aae665845728fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,7 +1446,7 @@ GameObject:
   - component: {fileID: 1411478731}
   m_Layer: 0
   m_Name: target3
-  m_TagString: Target
+  m_TagString: TargetBottom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2035,7 +2050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatTempo: 76
-  musicStartOffsetInBeats: 9
+  musicStartOffsetInBeats: 0
   secPerBeat: 0
   startingPosition: 0
   musicSource: {fileID: 1678188607}
@@ -2360,13 +2375,14 @@ GameObject:
   - component: {fileID: 1957856250}
   - component: {fileID: 1957856249}
   - component: {fileID: 1957856252}
+  - component: {fileID: 1957856253}
   m_Layer: 0
   m_Name: square (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1957856249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2474,6 +2490,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxCollider2D: {fileID: 1957856249}
   musicLoader: {fileID: 1678188605}
+--- !u!114 &1957856253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957856248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486b990dd303dc046beb3fbd64260402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss: {fileID: 482232901}
 --- !u!1 &2019750766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,7 +2518,7 @@ GameObject:
   - component: {fileID: 2019750771}
   m_Layer: 0
   m_Name: target
-  m_TagString: Target
+  m_TagString: TargetTop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
