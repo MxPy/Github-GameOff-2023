@@ -1039,9 +1039,22 @@ MonoBehaviour:
   textPanel: {fileID: 117833421}
   textLine: {fileID: 439836094}
   textLineArray:
-  - aaaaa
-  - bbb
-  - ccccccc
+  - '* Scaleboy lived a happy life with his family'
+  - '* Everything was going fine in his life He had his toys, a home, and most importantly...'
+  - '* A loving father and mother   But one day '
+  - '* ...everything changed'
+  - '* Scaleboy''s parents started to change...'
+  - '* Slowly morphing into horrible monsters, fueled by hatred and rage'
+  - '* All before his very eyes...'
+  - '* Scaleboy ran out of the kitchen as fast as he possibly could.   Seeking shelter
+    from the monsters rage '
+  - '* He hid in the closet'
+  - '* Inside he waited for the chaos to end, covering his ears. He was terrified.'
+  - '**** Slowly, the noises began to fade, as did his fear.'
+  - '* He opened his eyes.  He felt, that he was somewhere different. A very unfamilliar
+    place.'
+  - '* Upon opening the closet door, he was overwhelmed by a sense of wonder.   His
+    heart was filled with hope as his adventure began.'
   wordSpeed: 0.15
 --- !u!114 &1179443888
 MonoBehaviour:
