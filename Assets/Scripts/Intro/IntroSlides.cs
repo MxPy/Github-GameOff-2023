@@ -32,7 +32,7 @@ public class IntroSlides : MonoBehaviour
         }
 
         //start intro
-        StartCoroutine(StartSlideshow());
+        StartCoroutine(NextImage());
         if(!this.isTyping){
             stopTyping = false;
             StartCoroutine(Typing());
@@ -53,19 +53,11 @@ public class IntroSlides : MonoBehaviour
             }
         }
     }
-
-
     // images methods
-    IEnumerator StartSlideshow()
+    private void NextImage()
     {
-        while (currentIndex < imageArray.Length)
-        {
-            image.sprite = imageArray[currentIndex];
-            yield return new WaitForSeconds(slideDuration);
-            currentIndex++;
-        }
-
-        // something 
+        image.sprite = imageArray[currentIndex];
+        currentIndex++;
     }
 
     // text methods
