@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017207fd14d55a442858679a3faa10fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: CoreDemo
+  sceneToLoad: FirstFight
 --- !u!95 &135747554
 Animator:
   serializedVersion: 5
