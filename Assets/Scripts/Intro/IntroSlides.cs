@@ -60,13 +60,17 @@ public class IntroSlides : MonoBehaviour
     // text methods
     private IEnumerator StartTyping()
     {
-        while(indexText < textLineArray.Length){
-            yield return StartCoroutine(Typing());
-            yield return StartCoroutine(Wait(waitDuration));
+        while(indexImage < imageArray.Length){
+            while(indexText < textLineArray.Length){
+                yield return StartCoroutine(Typing());
+                yield return StartCoroutine(Wait(waitDuration));
+                NextImage();
+                NextLine();
+                slideCounter++;
+                Debug.LogError(indexText);
+            }
             NextImage();
-            NextLine();
             slideCounter++;
-            Debug.LogError(indexText);
         }
     }
 
