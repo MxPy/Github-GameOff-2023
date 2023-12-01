@@ -6,6 +6,11 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class IntroSlides : MonoBehaviour
 {
+    //for test
+    public int ctr = 0;
+
+
+
     public string sceneToLoad;
     private int slideCounter = 0;   // to check the last one 
 
@@ -36,15 +41,6 @@ public class IntroSlides : MonoBehaviour
         StartCoroutine(StartTyping());
     }
 
-    void Update()
-    {
-        if(slideCounter == 16){
-            NextImage();
-            Wait(3f);
-            LoadScene();
-        }
-    }
-
     IEnumerator Wait(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
@@ -60,7 +56,7 @@ public class IntroSlides : MonoBehaviour
     // text methods
     private IEnumerator StartTyping()
     {
-        while(indexImage < imageArray.Length){
+        while(indexImage < imageArray.Length - 1){
             while(indexText < textLineArray.Length){
                 yield return StartCoroutine(Typing());
                 yield return StartCoroutine(Wait(waitDuration));
@@ -68,10 +64,20 @@ public class IntroSlides : MonoBehaviour
                 NextLine();
                 slideCounter++;
                 Debug.LogError(indexText);
+
+                ctr++;
             }
+            //test
+            ctr++;
+            Debug.LogError(ctr);
+            
             NextImage();
+            yield return StartCoroutine(Wait(waitDuration));
             slideCounter++;
         }
+        NextImage();
+        yield return StartCoroutine(Wait(3f));
+        LoadScene();
     }
 
     public void zeroText()
