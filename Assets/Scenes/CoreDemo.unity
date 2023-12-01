@@ -1143,7 +1143,7 @@ MonoBehaviour:
   crtShader: {fileID: 4800000, guid: 250fdc00a42c0ff4185b7e3fbe908b80, type: 3}
   image: {fileID: 0}
   useImage: 0
-  curvature: 3.78
+  curvature: 2.73
   vignetteWidth: 20.3
 --- !u!1 &693116181
 GameObject:
