@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeleteHP : MonoBehaviour
 {
-    public GameObject HP1, HP2, HP3;
+    public GameObject HP1, HP2, HP3, loseScreen;
     public PlayerContorller playerContorller;
     public GameStart start;
 
@@ -24,7 +24,7 @@ public class DeleteHP : MonoBehaviour
                     start.StartGame();
                     playerContorller.HP--;
                 }else{
-                    //game over
+                    loseScreen.SetActive(true);
                 }
         }
     }
