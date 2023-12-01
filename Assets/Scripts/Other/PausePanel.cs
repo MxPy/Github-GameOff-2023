@@ -7,6 +7,7 @@ public class PausePanel : MonoBehaviour
 {
     public GameObject pause;
     private bool isPaused;
+    public AudioSource audioSource;
     private void Start()
     {
         isPaused = false;
@@ -27,6 +28,9 @@ public class PausePanel : MonoBehaviour
     {
         Time.timeScale = 0;
         isPaused = true;
+        if(audioSource != null){
+            audioSource.Pause();
+        }
 
         if(pause != null){
             pause.SetActive(true);
@@ -37,6 +41,9 @@ public class PausePanel : MonoBehaviour
     {
         Time.timeScale = 1;
         isPaused = false;
+        if(audioSource != null){
+            audioSource.Play();
+        }
 
         if (pause != null){
             pause.SetActive(false);

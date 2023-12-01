@@ -38,8 +38,11 @@ public class MusicLoader : MonoBehaviour
     void Update () {
         if(musicStarted){
             //calculate the position of the song in seconds from dsp space
-            songPosition = (float)(AudioSettings.dspTime - dspSongTime);
-            songPosInBeats = songPosition / secPerBeat;
+            if(musicSource.isPlaying == true){
+                songPosition = (float)(AudioSettings.dspTime - dspSongTime);
+                songPosInBeats = songPosition / secPerBeat;
+            }
+            
         }
         else{
             if(timer.finished){
